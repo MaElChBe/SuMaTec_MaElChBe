@@ -34,7 +34,7 @@ def search(solr):
         ids.append(buch["id"])
 
     # TXT-Datei wird geöffnet und die E-Book-ID dort abgespeichert.
-    with open("ebook_ids.txt", "w", encoding="utf-8") as datei:
+    with open("../ebook_ids.txt", "w", encoding="utf-8") as datei:
         for ebook_id in ids:
             datei.write(f"{ebook_id}\n")
 
