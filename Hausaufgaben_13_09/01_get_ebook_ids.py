@@ -3,7 +3,7 @@
  Die zurückgelieferten E-Book-IDs werden in der Textdatei ebook_ids.txt abgespeichert (eine ID pro Zeile).
  Die Anzahl der gespeicherten E-Book-IDs wird auf der Konsole ausgegeben.
 
- authors: Beata Lakenberg, Christin Seegert, Elena Torlopova, Martina Schildt
+ authors: Beata Lakeberg, Christin Seegert, Elena Torlopova, Martina Schildt
 license: MIT License
 version: 1.0
 date: 2026-10-27

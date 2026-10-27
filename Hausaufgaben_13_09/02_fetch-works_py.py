@@ -12,7 +12,7 @@ Nach einer Unterbrechung hilft das bei der Überprüfung, ob alle Dateien
 heruntergeladen wurden:
 Anzahl heruntergeladener Dateien + übersprungene Dateien + Fehler = Die Anzahl vo E-Books IDs (beim testen 2453)
 
-authors: Beata Lakenberg, Christin Seegert, Elena Torlopova, Martina Schildt
+authors: Beata Lakeberg, Christin Seegert, Elena Torlopova, Martina Schildt
 license: MIT License
 version: 1.0
 date: 2026-10-27
