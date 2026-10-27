@@ -1,7 +1,13 @@
 """Hier werden die IDs aller E-Books ermittelt, die in deutscher Sprache vorliegen und den Dokumenttyp Text besitzen.
  Statt rows werden cursorMark-Parameter verwendet.
  Die zurückgelieferten E-Book-IDs werden in der Textdatei ebook_ids.txt abgespeichert (eine ID pro Zeile).
- Die Anzahl der gespeicherten E-Book-IDs wird auf der Konsole ausgegeben."""
+ Die Anzahl der gespeicherten E-Book-IDs wird auf der Konsole ausgegeben.
+
+ authors: Beata Lakenberg, Christin Seegert, Elena Torlopova, Martina Schildt
+license: MIT License
+version: 1.0
+date: 2026-10-27
+"""
 
 import locale
 SOLR_CORE_URL = "http://localhost:8983/solr/my1stcore"

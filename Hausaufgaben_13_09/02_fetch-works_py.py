@@ -10,7 +10,12 @@ werden) auf der Konsole ausgegeben. Zusätzlich wird die Anzahl der übersprunge
 
 Nach einer Unterbrechung hilft das bei der Überprüfung, ob alle Dateien
 heruntergeladen wurden:
-Anzahl heruntergeladener Dateien + übersprungene Dateien + Fehler = 2453
+Anzahl heruntergeladener Dateien + übersprungene Dateien + Fehler = Die Anzahl vo E-Books IDs (beim testen 2453)
+
+authors: Beata Lakenberg, Christin Seegert, Elena Torlopova, Martina Schildt
+license: MIT License
+version: 1.0
+date: 2026-10-27
 """
 
 import requests
@@ -49,19 +54,21 @@ if __name__ == "__main__":
     num_of_skipped = 0
     failed_ids= []
 
+    #ebook_ids.txt Datei  wird gelesen und aus jeder Zeile wird eine saubere E-Book-ID gemacht. Leere Zeilen werden übersprungen.
     with open("ebook_ids.txt", "r", encoding="utf-8") as file:
         for line in file:
             ebook_id = line.strip()
             if not ebook_id:
                 continue
 
-
+            # Es wird der Pfad aufgebaut, unter dem die heruntergeladene Datei gespeichert werden
             output_file = os.path.join(base_dir, f"{ebook_id}.txt")
             # Dateien, die bereits vorhanden und nicht leer sind, überspringen.
             if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
                 num_of_skipped += 1 #zusätzlicher Zähler, wenn man Programm neu startet nach Unterbrechung.
                 continue
 
+            #Herunterladen und Mitzählen
             url = f"https://www.gutenberg.org/ebooks/{ebook_id}.txt.utf-8"
             print(f"Herunterladen der Textdatei von {url}")
             if download_file(url, output_file):
@@ -74,4 +81,4 @@ if __name__ == "__main__":
     print(f"{num_of_skipped} Dateien waren bereits vorhanden und wurden übersprungen.")
     print(f"{len(failed_ids)} Fehler (keine TXT-Datei gefunden / Download fehlgeschlagen):")
     for ebook_id in failed_ids:
-        print(f"  - {ebook_id}")
+        print(f"  - {ebook_id}") #die E-Books IDs von Fehlern.
