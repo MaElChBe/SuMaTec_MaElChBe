@@ -35,7 +35,11 @@ def download_file(url, filename):
 
 
     if response.status_code == requests.codes.ok:
-        #with open(filename, "w", encoding="utf-8") as file:
+        content_type = response.headers.get("Content-Type", "")
+        if not content_type.startswith("text/plain"):
+            print(f"Keine Textdatei erhalten von {url} (Content-Type: {content_type})")
+            return False
+
         with open(filename, "wb") as file:
             file.write(response.content)
         print(f"Datei erfolgreich heruntergeladen und gespeichert unter {filename}")
