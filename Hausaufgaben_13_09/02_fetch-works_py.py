@@ -10,7 +10,7 @@ werden) auf der Konsole ausgegeben. Zusätzlich wird die Anzahl der übersprunge
 
 Nach einer Unterbrechung hilft das bei der Überprüfung, ob alle Dateien
 heruntergeladen wurden:
-Anzahl heruntergeladener Dateien + übersprungene Dateien + Fehler = Die Anzahl vo E-Books IDs (beim testen 2453)
+Anzahl heruntergeladener Dateien + übersprungene Dateien + Fehler = Die Anzahl vo E-Books IDs (beim Testen 2453)
 
 authors: Beata Lakeberg, Christin Seegert, Elena Torlopova, Martina Schildt
 license: MIT License
@@ -26,8 +26,6 @@ def download_file(url, filename):
 
     # zwischen 0.5 und 2 Sekunden zufällig warten
     time.sleep(0.5 + 1.5 * (os.urandom(1)[0] / 255))
-    response = requests.get(url, timeout=60, stream=True)
-    response.encoding = 'utf-8'
 
     try:
         response = requests.get(url, timeout=60)
@@ -37,6 +35,7 @@ def download_file(url, filename):
 
 
     if response.status_code == requests.codes.ok:
+        #with open(filename, "w", encoding="utf-8") as file:
         with open(filename, "wb") as file:
             file.write(response.content)
         print(f"Datei erfolgreich heruntergeladen und gespeichert unter {filename}")
@@ -77,7 +76,7 @@ if __name__ == "__main__":
                 failed_ids.append(ebook_id)
 
 
-    print(f"Insgesamt {num_of_downloads} Volltextdateien erfolgreich heruntergeladen).")
+    print(f"Insgesamt {num_of_downloads} Volltextdateien erfolgreich heruntergeladen.")
     print(f"{num_of_skipped} Dateien waren bereits vorhanden und wurden übersprungen.")
     print(f"{len(failed_ids)} Fehler (keine TXT-Datei gefunden / Download fehlgeschlagen):")
     for ebook_id in failed_ids:
