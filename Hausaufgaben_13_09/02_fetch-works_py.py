@@ -35,7 +35,11 @@ def download_file(url, filename):
 
 
     if response.status_code == requests.codes.ok:
+        # Prüft anhand des Headers, welche Datei wurde von der Server geschickt bevor sie gespeichert wird.
         content_type = response.headers.get("Content-Type", "")
+        # Nur die Dateien, die mit "text/plain" beginnen, werden gespeichert.
+        # Auf der Konsole wird gezeigt, bei welcher URL keine Textdatei kam und was stattdessen kam.
+        # Erklärung dazu siehe Anmerkungen.md
         if not content_type.startswith("text/plain"):
             print(f"Keine Textdatei erhalten von {url} (Content-Type: {content_type})")
             return False
