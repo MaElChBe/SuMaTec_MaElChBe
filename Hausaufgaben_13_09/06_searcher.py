@@ -43,7 +43,8 @@ def search(solr, query):
 
     for rank, result in enumerate(results, start=1):
         issued = datetime.fromisoformat(result.get("issued").replace("Z", "+00:00"))
-        print(f"""Rang {rank}
+        #print(f"""Rang {rank}
+        print(f"""Rang {rank}  (Score: {result.get('score', 0):.4f})
           ID: {result.get('id')}
           Titel: {result.get('title')}
           Aufnahmedatum: {issued:%d. %B %Y}
