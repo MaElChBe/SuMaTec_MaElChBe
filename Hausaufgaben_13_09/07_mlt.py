@@ -1,4 +1,6 @@
 """
+Zusatzaufgabe
+
 Das Script prüft, ob ein Request Handler /mlt existiert. Ist dies nicht der Fall, legt das Script diesen an. Existiert dieser schon,
 dann erfolgt eine entsprechende Rückmeldung ("Request Handler '/mlt' existiert bereits.")
 Danach werden Funktionien für die Ein- und Ausgaben aufbereitet. 
@@ -14,31 +16,6 @@ license: MIT License
 version: 1.0
 date: 2026-11-08  
 
-"""
-
-"""
-
-Ablauf:
-  1. Request Handler /mlt im Core anlegen (nur falls noch nicht vorhanden).
-  2. Suchanfrage vom Benutzer einlesen, Top-1-Dokument ermitteln und ausgeben.
-  3. ID des Top-1-Dokuments an /mlt schicken -> bis zu 3 ähnliche E-Books
-     sowie die "interessantesten" Terme (interestingTerms) ausgeben.
-
-MLT-Parameter lassen sich pro Aufruf überschreiben, z.B.:
-    python 07_mlt.py --param mlt.mintf=1 --param mlt.mindf=2 --param mlt.maxqt=50
-"""
-
-#!/usr/bin/env python3
-"""07_mlt.py - MoreLikeThis (Ähnlichkeitssuche) auf dem Solr-Core pg_fulltexts.
-
-Ablauf:
-  1. Request Handler /mlt im Core anlegen (nur falls noch nicht vorhanden).
-  2. Suchanfrage vom Benutzer einlesen, Top-1-Dokument ermitteln und ausgeben.
-  3. ID des Top-1-Dokuments an /mlt schicken -> bis zu 3 ähnliche E-Books
-     sowie die "interessantesten" Terme (interestingTerms) ausgeben.
-
-MLT-Parameter lassen sich pro Aufruf überschreiben, z.B.:
-    python 07_mlt.py --param mlt.mintf=1 --param mlt.mindf=2 --param mlt.maxqt=50
 """
 
 import argparse
